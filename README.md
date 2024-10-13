@@ -3,7 +3,7 @@ This is a personal project where I wanted to use Go and APIs to practice my skil
 
 ## Sheets
 <details>
-  <summary><a href="https://docs.google.com/spreadsheets/d/1YeKmJEr0zGP00ZhgRmVC4gaOet5D2f_UNsF17iOkPGI/edit?pli=1&gid=2012782522#gid=2012782522" target="_blank"> Week Filter </a> </summary>
+  <summary><a href="https://docs.google.com/spreadsheets/d/1YeKmJEr0zGP00ZhgRmVC4gaOet5D2f_UNsF17iOkPGI/edit?pli=1&gid=2012782522#gid=2012782522" target="_blank" rel="noopener noreferrer"> Week Filter </a> </summary>
   
   <img src="https://github.com/user-attachments/assets/e5a03932-ea47-4907-bbc0-22fb0ec7342c" alt="Week Filter Sheet"/>
 </details>
