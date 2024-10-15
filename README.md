@@ -32,3 +32,9 @@ This is a personal project where I wanted to use Go and APIs to practice my skil
   <summary><a href="https://docs.google.com/spreadsheets/d/1YeKmJEr0zGP00ZhgRmVC4gaOet5D2f_UNsF17iOkPGI/edit?pli=1&gid=707813147#gid=707813147" target="_blank" rel="noopener noreferrer">O/U Analysis Sheet</a></summary>
   <img src="https://github.com/user-attachments/assets/6eb02ceb-bf82-4f1b-9831-f73b29e9c87b" alt="O/U Analysis Sheet"/>
 </details>
+
+<details>
+<summary>Triggers</summary>
+  <img src="https://github.com/user-attachments/assets/80f1fe41-f5b4-4d3c-be63-680964cd0bfc" alt="Live Scoring Sheet"/>
+  <p>These triggers run on Sunday, Monday, Wednesday, Thursday, Friday, Saturday Each week to create the other triggers only on game days (These are days of the week there are NFL games during the 2024 season) </p>
+  </details>
