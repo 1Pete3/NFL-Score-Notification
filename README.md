@@ -36,5 +36,14 @@ This is a personal project where I wanted to use Go and APIs to practice my skil
 <details>
 <summary>Triggers</summary>
   <img src="https://github.com/user-attachments/assets/80f1fe41-f5b4-4d3c-be63-680964cd0bfc" alt="Live Scoring Sheet"/>
-  <p>These triggers run on Sunday, Monday, Wednesday, Thursday, Friday, Saturday Each week to create the other triggers only on game days (These are days of the week there are NFL games during the 2024 season) </p>
+  <p>These triggers run on Sunday, Monday, Wednesday, Thursday, Friday, Saturday Each week to create the other triggers only on game days (These are days of the week there are NFL games during the 2024 season)</p>
+<ul>  
+<li>If there are games on those days, the createTriggersForGameDays will create a new trigger to run the main function so that the spread sheet gets updated every 5 minutes</li>
+<li>A new trigger will be created to check if the last game is over, if true all the triggers besides the createTriggersForGameDays get deleted</li>
+</ul>  
   </details>
+
+## Credentials
+For my set up I used 
+- Mongodb to store the data from the spreadsheet
+- Google service account to authenticate and gave the service account access to the Google sheet with NFL game information so that I could make API calls using [Google Sheets API](https://developers.google.com/sheets/api/guides/concepts) with Go
