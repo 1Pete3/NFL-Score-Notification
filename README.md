@@ -33,15 +33,62 @@ This is a personal project where I wanted to use Go and APIs to practice my skil
   <img src="https://github.com/user-attachments/assets/6eb02ceb-bf82-4f1b-9831-f73b29e9c87b" alt="O/U Analysis Sheet"/>
 </details>
 
-<details>
-<summary>Triggers</summary>
-  <img src="https://github.com/user-attachments/assets/80f1fe41-f5b4-4d3c-be63-680964cd0bfc" alt="Live Scoring Sheet"/>
-  <p>These triggers run on Sunday, Monday, Wednesday, Thursday, Friday, Saturday Each week to create the other triggers only on game days (These are days of the week there are NFL games during the 2024 season)</p>
-<ul>  
-<li>If there are games on those days, the createTriggersForGameDays will create a new trigger to run the main function so that the spread sheet gets updated every 5 minutes</li>
-<li>A new trigger will be created to check if the last game is over, if true all the triggers besides the createTriggersForGameDays get deleted</li>
-</ul>  
-  </details>
+## Trigger functions
+The main function in the Google Apps Script updates the Google spreadsheet. I have created multiple triggers to only update the spreadsheet on game days 
+and to automatically create and delete triggers. There are multiple functions for deleting becasuse I wanted to have a trigger to run ~2 hours after a game start and check every 5 minutes if the game was over. I couldn't set a trigger to start at a specific time and then run every 5 minutes so multiple triggers were created. 
+
+![Flow chart of my triggers](Images\Flowchart.png)
+
+
+
+
+### triggerCreateGameDay()
+**returns: Nothing**
+
+On game days during the 2024-2025 season, there are football games being played everyday of the week besides Tuesday. There are 6 triggers to check if there is a game on Monday, Wednesday, Thursday, Friday, Saturday and Sunday (One trigger per weekday). These triggers never get deleted because they are needed to create other triggers if there is a game.
+![alt text](Images/image.png)
+
+### triggerCreateMain()
+**returns: Nothing**
+
+```triggerCreateMain()``` is used in ```triggerCreateGameDay()``` when it's game day a trigger to run ```main()``` is created which updates the spreadsheet every 5 minutes. To prevent API Quotas from being exceeded the trigger starts running when the game starts and ends when the last game is over. 
+
+```triggerCreateMain()``` creates a trigger for deleting triggers as well  using ```triggerLastGame()``` .
+
+### triggerLastGame()
+**returns: Last game ID if main trigger exists**
+
+This function creates another trigger using the ```triggerDeleteMain()``` to create a trigger that uses ```triggerDeleteTriggers()```  2 hours 14 minutes after a game starts to check if the last game is over.
+
+### triggerDeletemain()
+**returns: Nothing**
+
+This function creates another trigger that uses ```triggerDeleteTriggers()``` to run every 5 minutes.
+
+###  triggerDeleteTriggers()
+**returns: Nothing**
+
+This is the function that actually deletes all triggers except ```triggerCreateGameDay``` when the game status is "game over".
+
+## Helper functions for triggers
+### triggerCheckGameDays()
+**returns: Nothing**
+
+Creates a trigger for ```triggerCreateGameDay()``` for each week day there is a NFL game automatically to save time if these were accidentally deleted.
+
+### triggerDeleteAll()
+**returns: Nothing**
+
+Deletes all active triggers saving time instead of going one by one.
+
+### triggerActive() 
+**Returns: An array of objects for information about active triggers**
+
+Instead of using an array and looping through  ```ScriptApp.getProjectTriggers()``` each time I decided to store information in an array of objects for each trigger. The trigger ID is needed to delete triggers and since ```triggerCreateGameDay()``` exists 6 times there are 6 different IDs so they get put into an array. 
+
+```alltriggerActive['triggerCreateGameDay']```
+
+![triggerActive function return](Images\triggerActive.png)
 
 ## Credentials
 For my set up I used 
