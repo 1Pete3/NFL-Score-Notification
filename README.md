@@ -37,7 +37,7 @@ This is a personal project where I wanted to use Go and APIs to practice my skil
 The main function in the Google Apps Script updates the Google spreadsheet. I have created multiple triggers to only update the spreadsheet on game days 
 and to automatically create and delete triggers. There are multiple functions for deleting becasuse I wanted to have a trigger to run ~2 hours after a game start and check every 5 minutes if the game was over. I couldn't set a trigger to start at a specific time and then run every 5 minutes so multiple triggers were created. 
 
-![Flow chart of my triggers](Images\Flowchart.png)
+![Flow chart of my triggers](Images/Flowchart.png)
 
 
 
