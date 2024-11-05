@@ -88,7 +88,7 @@ Instead of using an array and looping through  ```ScriptApp.getProjectTriggers()
 
 ```alltriggerActive['triggerCreateGameDay']```
 
-![triggerActive function return](Images\triggerActive.png)
+![triggerActive function return](Images/triggerActive.png)
 
 ## Credentials
 For my set up I used 
